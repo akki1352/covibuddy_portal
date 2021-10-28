@@ -1,0 +1,17 @@
+.Doctors:hover {
+  text-decoration: none;
+}
+
+.img {
+  max-width: 220px;
+  max-height: 200px;
+}
+
+.border {
+  border-bottom: 2px dotted gray;
+}
+
+.card{
+  background-color: #ebe9e9;
+  margin-right: 5px;
+}
