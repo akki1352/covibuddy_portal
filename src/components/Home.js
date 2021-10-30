@@ -13,7 +13,7 @@ const Home = () => (
             <option> Bangalore</option>
             <option> Hyderabad</option>
           </select>
-          <Link to="/appointments/new" className={classes.Button}>
+          <Link to="/bookings/new" className={classes.Button}>
             Add Appointment
           </Link>
         </div>
