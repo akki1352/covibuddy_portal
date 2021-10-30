@@ -124,7 +124,7 @@ const Register = () => {
 
     // eslint-disable-next-line no-underscore-dangle
     if (checkBtn.current.context._errors.length === 0) {
-      dispatch(register(name, email, password, 'admin', contact, location))
+      dispatch(register(name, email, password, 'user', contact, location))
         .then(() => {
           setLoading(false);
           setSuccessful(true);
