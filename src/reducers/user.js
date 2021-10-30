@@ -1,3 +1,4 @@
+/* eslint linebreak-style: ["error", "windows"] */
 import {
   DOCTORS_SUCCESS,
   DOCTORS_FAIL,

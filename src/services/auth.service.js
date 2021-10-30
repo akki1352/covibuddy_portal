@@ -1,3 +1,4 @@
+/* eslint linebreak-style: ["error", "windows"] */
 import axios from 'axios';
 
 // const API_URL = 'https://frozen-river-95471.herokuapp.com/api/v1/';
