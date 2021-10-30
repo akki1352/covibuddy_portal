@@ -24,6 +24,7 @@ const Profile = () => {
   const { user: currentUser } = useSelector(state => state.auth);
   const [name, setName] = useState(currentUser.user.name);
   const [contact, setContact] = useState(currentUser.user.contact);
+  const [location, setLocation] = useState(currentUser.user.location);
   const [loading, setLoading] = useState(false);
   const alert = useAlert();
 
@@ -56,7 +57,7 @@ const Profile = () => {
   };
 
   return (
-    <div className="container">
+    <div className="container" style={{ width: '400px' }}>
       <h3>
         <strong>{currentUser.user.name}</strong>
         {' '}
@@ -95,6 +96,18 @@ const Profile = () => {
             name="contact"
             value={contact}
             onChange={e => { setContact(e.target.value); }}
+            validations={[required]}
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="location">Location</label>
+          <Input
+            id="location"
+            type="text"
+            className="form-control"
+            name="location"
+            value={location}
+            onChange={e => { setLocation(e.target.value); }}
             validations={[required]}
           />
         </div>

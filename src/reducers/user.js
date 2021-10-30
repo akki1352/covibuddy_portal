@@ -51,7 +51,7 @@ export default function user(state = initialState, action) {
     case VOLUNTEERS_SUCCESS:
       return {
         ...state,
-        volunteers: payload.hospitals,
+        volunteers: payload.volunteers,
       };
     case VOLUNTEERS_FAIL:
       return {
