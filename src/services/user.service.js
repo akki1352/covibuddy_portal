@@ -21,7 +21,8 @@ const postBooking = (userId, hospitalId, bookingType, bookingDate) => axios.post
 });
 const deleteBooking = bookingId => axios.delete(`${D_API_URL}api/v1/bookings/${bookingId}`);
 const getBookingTypes = () => axios.get(`${D_API_URL}api/v1/bookingTypes`);
-const getSuppliers = () => axios.get(`${D_API_URL}api/v1/hospital`);
+const getSuppliers = () => axios.get(`${D_API_URL}api/v1/suppliers`);
+const getVolunteers = () => axios.get(`${D_API_URL}api/v1/volunteers`);
 export default {
   getDoctors,
   getDoctor,
@@ -39,4 +40,5 @@ export default {
   getBookingTypes,
   updateUser,
   getSuppliers,
+  getVolunteers,
 };

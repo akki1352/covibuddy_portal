@@ -40,7 +40,7 @@ const Hospital = () => {
       <div className={classes.Doctor}>
         <img src={hospitalLarge} alt={content.name} className={classes.doctorImg} />
         <div>
-          <h2>
+          <h2 style={{ textTransform: 'uppercase' }}>
             {content.name}
           </h2>
           <p className={`${classes.badge} ${classes.badgeSecondary}`}>
@@ -71,7 +71,7 @@ const Hospital = () => {
               }}
               className={classes.btn}
             >
-              Booking Covid Vaccine
+              Book Covid Vaccine
             </Link>
           </li>
         </div>

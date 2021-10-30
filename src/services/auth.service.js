@@ -3,12 +3,13 @@ import axios from 'axios';
 // const API_URL = 'https://frozen-river-95471.herokuapp.com/api/v1/';
 const D_API_URL = 'http://localhost:7000/api/v1/';
 
-const register = (name, email, password, type, contact) => axios.post(`${D_API_URL}users`, {
+const register = (name, email, password, type, contact, location) => axios.post(`${D_API_URL}users`, {
   name,
   email,
   password,
   type,
   contact,
+  location,
 })
   .then(response => {
     if (response.data) {

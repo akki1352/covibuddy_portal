@@ -87,7 +87,7 @@ const Booking = () => {
               On &nbsp;
               {new Date(content.bookingDate).toLocaleDateString()}
             </p>
-            <button className="btn btn-primary btn-block" type="button" onClick={handleClick} disabled={loading}>
+            <button className="btn btn-primary btn-block custom-btn" type="button" onClick={handleClick} disabled={loading}>
               Delete
             </button>
           </div>

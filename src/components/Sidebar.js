@@ -72,6 +72,16 @@ const Sidebar = () => {
                 </NavLink>
               </li>
               <li>
+                <NavLink to="/suppliers" className={classes.navlink} activeClassName={classes.active}>
+                  Suppliers
+                </NavLink>
+              </li>
+              <li>
+                <NavLink to="/volunteers" className={classes.navlink} activeClassName={classes.active}>
+                  Volunteers
+                </NavLink>
+              </li>
+              <li>
                 <NavLink exact to="/bookings" className={classes.navlink} activeClassName={classes.active}>
                   Bookings
                 </NavLink>

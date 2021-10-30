@@ -52,6 +52,17 @@ const vcontact = value => {
   return null;
 };
 
+const vlocation = value => {
+  if (!value) {
+    return (
+      <div className="alert alert-danger" role="alert">
+        Location field is required.
+      </div>
+    );
+  }
+  return null;
+};
+
 const vpassword = value => {
   if (value.length < 6 || value.length > 40) {
     return (
@@ -71,6 +82,7 @@ const Register = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [contact, setContact] = useState('');
+  const [location, setLocation] = useState('');
   const [successful, setSuccessful] = useState(false);
   const [loading, setLoading] = useState(false);
 
@@ -97,6 +109,11 @@ const Register = () => {
     setContact(contact);
   };
 
+  const onChangeLocation = e => {
+    const location = e.target.value;
+    setLocation(location);
+  };
+
   const handleRegister = e => {
     e.preventDefault();
     setLoading(true);
@@ -106,7 +123,7 @@ const Register = () => {
 
     // eslint-disable-next-line no-underscore-dangle
     if (checkBtn.current.context._errors.length === 0) {
-      dispatch(register(name, email, password, 'user', contact))
+      dispatch(register(name, email, password, 'admin', contact, location))
         .then(() => {
           setLoading(false);
           setSuccessful(true);
@@ -183,6 +200,18 @@ const Register = () => {
                   value={contact}
                   onChange={onChangeContact}
                   validations={[required, vcontact]}
+                />
+              </div>
+
+              <div className="form-group">
+                <label htmlFor="location">Location</label>
+                <Input
+                  type="text"
+                  className="form-control"
+                  name="location"
+                  value={location}
+                  onChange={onChangeLocation}
+                  validations={[required, vlocation]}
                 />
               </div>
 

@@ -1,12 +1,15 @@
 import React, { useEffect, useState } from 'react';
-import { Redirect, Link } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import Carousel from 'react-multi-carousel';
-import SocialIcons from '../UI/SocialIcons';
+// import SocialIcons from '../UI/SocialIcons';
 import 'react-multi-carousel/lib/styles.css';
 import classes from '../../styles/Doctors.module.css';
 import { getSuppliers } from '../../actions/user';
-import hospitalLogo from '../../assets/images/supplies.jpg';
+import sanitizerLogo from '../../assets/images/sanitizer.png';
+import maskLogo from '../../assets/images/mask.jpg';
+import cylinderLogo from '../../assets/images/cylinder.jpg';
+import rationLogo from '../../assets/images/ration.jpg';
 
 const Suppliers = () => {
   const { user: currentUser } = useSelector(state => state.auth);
@@ -34,30 +37,51 @@ const Suppliers = () => {
     return <Redirect to="/login" />;
   }
 
-  const doctorsList = suppliers.map(hospital => (
-    <div key={hospital.id} className={classes.card}>
-      <Link to={`/hospitals/${hospital.id}`} className={classes.Doctors}>
-        <div className="d-flex flex-column align-items-center">
-          <img src={hospitalLogo} alt={hospital.name} className={`rounded-circle ${classes.img}`} />
-          <h5 className={`text-dark p-4 ${classes.border}`}>{hospital.name}</h5>
-          <p className="text-secondary mt-3">
-            <strong>Bed Type:&nbsp;</strong>
-            {hospital.bedType}
-          </p>
-          <p className="text-secondary mt-3">
-            <strong>Location:&nbsp;</strong>
-            {hospital.location}
-          </p>
-        </div>
-      </Link>
-      <SocialIcons />
+  const getImage = imageType => {
+    if (imageType === 'Mask') {
+      return maskLogo;
+    }
+    if (imageType === 'Sanitizer') {
+      return sanitizerLogo;
+    }
+    if (imageType === 'Fruits' || imageType === 'Vegetables') {
+      return rationLogo;
+    }
+    return cylinderLogo;
+  };
+
+  const suppliersList = suppliers.map(supplier => (
+    <div key={supplier.id} className={classes.card}>
+      {/* <Link to={`/hospitals/${supplier.id}`} className={classes.Doctors}> */}
+      <div className="d-flex flex-column align-items-center">
+        <img src={getImage(supplier.supplyType)} alt={supplier.name} className={`rounded-circle ${classes.img} corousal_img`} />
+        <h5 className={`text-dark p-4 ${classes.border}`}>{supplier.name}</h5>
+        <p className="text-secondary mt-3">
+          <strong>Supply Type:&nbsp;</strong>
+          {supplier.supplyType}
+        </p>
+        <p className="text-secondary mt-3">
+          <strong>Stock:&nbsp;</strong>
+          {supplier.stock}
+        </p>
+        <p className="text-secondary mt-3">
+          <strong>Location:&nbsp;</strong>
+          {supplier.location}
+        </p>
+        <p className="text-secondary mt-3">
+          <strong>Contact:&nbsp;</strong>
+          {supplier.contact}
+        </p>
+      </div>
+      {/* </Link> */}
+      {/* <SocialIcons /> */}
     </div>
   ));
   return (
     <div className="container text-center">
       <div>
         <h3>LIST OF SUPPLIERS</h3>
-        <p className="text-secondary">Please select a supplier to view details</p>
+        <p className="text-secondary">Please contact supplier for more details.</p>
       </div>
       {loading && <span className="spinner-border spinner-border-lg" />}
       <Carousel
@@ -107,7 +131,7 @@ const Suppliers = () => {
         slidesToSlide={1}
         swipeable
       >
-        {doctorsList}
+        {suppliersList}
       </Carousel>
       {message && (
         <div className="form-group">

@@ -80,9 +80,11 @@ const Bookings = () => {
                   return (
                     <div key={hospital.id}>
                       <p>
+                        Hospital Name: &nbsp;
                         {hospital.name}
                       </p>
                       <p>
+                        Location: &nbsp;
                         {hospital.location}
                       </p>
                     </div>

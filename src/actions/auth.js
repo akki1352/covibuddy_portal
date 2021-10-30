@@ -11,7 +11,7 @@ import {
 import AuthService from '../services/auth.service';
 
 // eslint-disable-next-line max-len
-export const register = (name, email, password, type, contact) => dispatch => AuthService.register(name, email, password, type, contact).then(
+export const register = (name, email, password, type, contact, location) => dispatch => AuthService.register(name, email, password, type, contact, location).then(
   response => {
     dispatch({
       type: REGISTER_SUCCESS,

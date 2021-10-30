@@ -6,6 +6,8 @@ import {
   HOSPITALS_FAIL,
   SUPPLIERS_SUCCESS,
   SUPPLIERS_FAIL,
+  VOLUNTEERS_SUCCESS,
+  VOLUNTEERS_FAIL,
 } from './types';
 
 import UserService from '../services/user.service';
@@ -80,7 +82,7 @@ const getSuppliers = () => dispatch => UserService.getSuppliers().then(
   response => {
     dispatch({
       type: SUPPLIERS_SUCCESS,
-      payload: { suppliers: response.data.hospitals },
+      payload: { suppliers: response.data.suppliers },
     });
 
     dispatch({
@@ -109,4 +111,37 @@ const getSuppliers = () => dispatch => UserService.getSuppliers().then(
   },
 );
 
-export { getHospitals, getSuppliers };
+const getVolunteers = () => dispatch => UserService.getVolunteers().then(
+  response => {
+    dispatch({
+      type: VOLUNTEERS_SUCCESS,
+      payload: { volunteers: response.data.volunteers },
+    });
+
+    dispatch({
+      type: SET_MESSAGE,
+      payload: response.data.message,
+    });
+
+    return Promise.resolve();
+  },
+  error => {
+    const message = (error.response
+          && error.response.data
+          && error.response.data.message)
+        || error.message
+        || error.toString();
+    dispatch({
+      type: VOLUNTEERS_FAIL,
+    });
+
+    dispatch({
+      type: SET_MESSAGE,
+      payload: message,
+    });
+
+    return Promise.reject();
+  },
+);
+
+export { getHospitals, getSuppliers, getVolunteers };
