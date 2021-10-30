@@ -12,7 +12,7 @@ const getAppointment = (userId, appointmentId) => axios.get(`${API_URL}api/v1/us
 const postAppointment = (userId, doctorId, appointmentDate) => axios.post(`${API_URL}api/v1/users/${userId}/appointments`, { doctor_id: doctorId, appointment_date: appointmentDate }, { headers: authHeader() });
 const deleteAppointment = (userId, appointmentId) => axios.delete(`${API_URL}api/v1/users/${userId}/appointments/${appointmentId}`, { headers: authHeader() });
 const getUsers = () => axios.get(`${D_API_URL}api/v1/users`);
-const updateUser = (name_, email_, contact_) => axios.put(`${D_API_URL}api/v1/users`, { name: name_, email: email_, contact: contact_ });
+const updateUser = (name_, email_, contact_, location_) => axios.put(`${D_API_URL}api/v1/users`, { name: name_, email: email_, contact: contact_, location: location_ });
 const getHospitals = () => axios.get(`${D_API_URL}api/v1/hospital`);
 const getHospital = hospitalId => axios.get(`${D_API_URL}api/v1/hospital/${hospitalId}`);
 const getBookings = userId => axios.get(`${D_API_URL}api/v1/bookings/user/${userId}`);

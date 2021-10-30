@@ -39,7 +39,7 @@ const Profile = () => {
     form.current.validateAll();
     // eslint-disable-next-line no-underscore-dangle
     if (checkBtn.current.context._errors.length === 0) {
-      UserService.updateUser(name, currentUser.user.email, contact).then(
+      UserService.updateUser(name, currentUser.user.email, contact, location).then(
         () => {
           setLoading(false);
           alert.show('Profile Updated Successfully.', {
