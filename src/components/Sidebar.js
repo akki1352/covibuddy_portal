@@ -1,4 +1,3 @@
-/* eslint linebreak-style: ["error", "windows"] */
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';

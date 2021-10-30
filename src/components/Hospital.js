@@ -1,4 +1,3 @@
-/* eslint linebreak-style: ["error", "windows"] */
 import React, { useState, useEffect } from 'react';
 import { Redirect, Link, useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
